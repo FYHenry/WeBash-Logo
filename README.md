@@ -1,3 +1,3 @@
-# Titre
+# WeBash-Logo
 
-Texte.
+Une collection de logotypes du projet *WeBash*.
