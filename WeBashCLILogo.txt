@@ -1,0 +1,96 @@
+WeBash CLI logo.
+   ________________________________________________________
+  /.______________________________________________. ._. ._.\
+ / |______________________________________________| |_| |_| \
+/____________________________________________________________\
+|                                                            |
+|                            ________        ________        |
+|                           /       /       /       /        |
+|                          /       /       /       /         |
+|                         /       /       /       /          |
+|                ________/       /_______/       /_______    |
+|               /                                       /    |
+|              /                                       /     |
+|             /                                       /      |
+|            /_______        ________        ________/       |
+|                   /       /       /       /                |
+|                  /       /       /       /                 |
+|                 /       /       /       /                  |
+|        ________/       /_______/       /_______            |
+|       /                                       /            |
+|      /                                       /             |
+|     /                                       /              |
+|    /_______        ________        ________/               |
+|           /       /       /       /                        |
+|          /       /       /       /                         |
+|         /       /       /       /                          |
+|        /_______/       /_______/                           |
+|                                                            |
+\                                                            /
+ \                                                          /
+  \________________________________________________________/
+
+        By Alnotz ;-)
+        
+Tiny WeBash CLI Logo.
+
+   _______________________________
+  /._____________________. ._. ._.\
+ / |_____________________| |_| |_| \
+/___________________________________\
+|                                   |
+|               _____     _____     |
+|              /    /    /    /     |
+|        _____/    /____/    /____  |
+|       /                        /  |
+|      /____     _____     _____/   |
+|          /    /    /    /         |
+|    _____/    /____/    /____      |
+|   /                        /      |
+|  /____     _____     _____/       |
+|      /    /    /    /             |
+|     /____/    /____/              |
+|                                   |
+\                                   /
+ \_________________________________/
+
+        By Alnotz ;-)
+
+#!/bin/env bash
+BORD="\E[0m\E[1;39;40m"
+FONT="\E[0m\E[2;91;100m"
+INTER="\E[0m\E[1;39;100m"
+echo ""
+echo -e  "\E[0;31;40mCo\E[0;32;40mlou\E[0;33;40mred\E[0;31;40m \E[4;31;40mWeBash\E[0;31;40m CLI logo\E[0m"
+echo -e  "   $BORD""________________________________________________________\E[0m   "
+echo -ne "  $BORD/$INTER.______________________________________________. ._. ._.$BORD"; echo -n "\\"; echo -e "\E[0m  "
+echo -ne " $BORD/$FONT $INTER|$BORD""______________________________________________$INTER|$FONT $INTER|$BORD""_$INTER|$FONT $INTER|$BORD""_$INTER|$FONT $BORD"; echo -n "\\"; echo -e "\E[0m "
+echo -ne "$BORD/$INTER""____________________________________________________________$BORD"; echo -n "\\"; echo -e "\E[0m"
+echo -e  "$BORD|$FONT                                                            $BORD|\E[0m"
+echo -e  "$BORD|$FONT                            ________        ________        $BORD|\E[0m"
+echo -e  "$BORD|$FONT                           /       /       /       /        $BORD|\E[0m"
+echo -e  "$BORD|$FONT                          /       /       /       /         $BORD|\E[0m"
+echo -e  "$BORD|$FONT                         /       /       /       /          $BORD|\E[0m"
+echo -e  "$BORD|$FONT                ________/       /_______/       /_______    $BORD|\E[0m"
+echo -e  "$BORD|$FONT               /                                       /    $BORD|\E[0m"
+echo -e  "$BORD|$FONT              /                                       /     $BORD|\E[0m"
+echo -e  "$BORD|$FONT             /                                       /      $BORD|\E[0m"
+echo -e  "$BORD|$FONT            /_______        ________        ________/       $BORD|\E[0m"
+echo -e  "$BORD|$FONT                   /       /       /       /                $BORD|\E[0m"
+echo -e  "$BORD|$FONT                  /       /       /       /                 $BORD|\E[0m"
+echo -e  "$BORD|$FONT                 /       /       /       /                  $BORD|\E[0m"
+echo -e  "$BORD|$FONT        ________/       /_______/       /_______            $BORD|\E[0m"
+echo -e  "$BORD|$FONT       /                                       /            $BORD|\E[0m"
+echo -e  "$BORD|$FONT      /                                       /             $BORD|\E[0m"
+echo -e  "$BORD|$FONT     /                                       /              $BORD|\E[0m"
+echo -e  "$BORD|$FONT    /_______        ________        ________/               $BORD|\E[0m"
+echo -e  "$BORD|$FONT           /       /       /       /                        $BORD|\E[0m"
+echo -e  "$BORD|$FONT          /       /       /       /                         $BORD|\E[0m"
+echo -e  "$BORD|$FONT         /       /       /       /                          $BORD|\E[0m"
+echo -e  "$BORD|$FONT        /_______/       /_______/                           $BORD|\E[0m"
+echo -e  "$BORD|$FONT                                                            $BORD|\E[0m"
+echo -ne "$BORD"; echo -n "\\"; echo -e "$FONT                                                            $BORD/\E[0m"
+echo -ne " $BORD"; echo -n "\\"; echo -e "$FONT                                                          $BORD/\E[0m "
+echo -ne "  $BORD"; echo -n "\\"; echo -e "$INTER""________________________________________________________$BORD/\E[0m  "
+echo ""
+echo -e "     By \E[5;31;40mAlnotz\E[0m ;-)"
