@@ -23,39 +23,28 @@
 \                                   /
  \_________________________________/
  */
-/* g++ -Wall -Wextra -c WeBashLogo.cpp && g++ -Wall -Wextra WeBashLogo.o -o WeBashLogo */
+/* g++ -std=c++17 -Wall -Wextra -c WeBashLogo.cpp && g++ -Wall -Wextra WeBashLogo.o -o WeBashLogo */
 #include <iostream>//I/O en C++.
 #include <string>//Caractères C++.
 #include <unistd.h>//Non standard en C de GNU pour 'usleep()'.
 #include <ctime>//Non standard en C de GNU pour 'nanousleep()'.
+#include <array>//Tableaux C++.
 /* En ce qui concerne les dimensions des symboles et lettres. */
-const int LOGO_LIGNES = 19;
-const int LOGO_COLONNES = 80;
-const int LETTRES_LIGNES = 19;
-const int LETTRES_COLONNES = 23;
-const int SORTIE_LIGNES = 19;
-const int SORTIE_COLONNES = 100;
+const auto LOGO_LIGNES = 19;
+const auto LOGO_COLONNES = 80;
+const auto LETTRES_LIGNES = 19;
+const auto SORTIE_LIGNES = 19;
+const auto SORTIE_COLONNES = 100;
 /* Numéro de version. */
 const auto LOGO_VERSION = std::string("2.0");
 /* Temps de pause (microsecondes). */
-const int TEMPS_L = 800000;
-const int TEMPS_C = 200000;
-const int TEMPS_TC = 50000;
-/* Fonction d'aide. */
-void help_info(char *commName)
-{
-  std::cout <<
-  "Aide pour " << commName << " :\n\n\
-Commandes : " << commName << " [-h | --help | -v [SYMBOLE] | --verbose [SYMBOLE] | -V | --version] \n\n\
--h --help\t\tInformation sur les commandes.\n\n\
--v --verbose\t\tMode bavard pour les essais. Ajouter une valeur\
-SYMBOLE affiche le symbole correspondant.\n\n\
--V --version\t\tValeur de version.\n\n\
-SYMBOLE\t\tUne des valeurs de 1 à 6 pour les 6 lettres de WeBash\
-ou 0 pour le logo initial ou encore N pour une fenêtre sans croisillon.\n";
-}
+const auto TEMPS_L = 800000;//Long.
+const auto TEMPS_C = 200000;//Court.
+const auto TEMPS_TC = 50000;//Très court.
+const std::array SYMBOLES{"N", "0", "1", "2", "3", "4", "5", "6"};
+typedef const std::array<std::string, LOGO_LIGNES> frame;//Trame de plusieurs lignes.
 /* Le logo seul. */
-char logo0[LOGO_LIGNES][LOGO_COLONNES] = 
+frame LOGO0 = 
 {
   "   _______________________________   \n",
   "  /._____________________. ._. ._.\\  \n",
@@ -78,7 +67,7 @@ char logo0[LOGO_LIGNES][LOGO_COLONNES] =
   " \\_________________________________/ \n"
 };
 /* Le logo vide. */
-char logoN[LOGO_LIGNES][LOGO_COLONNES] = 
+frame LOGON = 
 {
   "   _______________________________   \n",
   "  /._____________________. ._. ._.\\  \n",
@@ -101,7 +90,7 @@ char logoN[LOGO_LIGNES][LOGO_COLONNES] =
   " \\_________________________________/ \n"
 };
 /* La lettre 'W'. */
-char logo1[LETTRES_LIGNES][LETTRES_COLONNES] = 
+frame LOGO1 = 
 {
   "\n",
   "\n",
@@ -124,7 +113,8 @@ char logo1[LETTRES_LIGNES][LETTRES_COLONNES] =
   "\n"
 };
 /* La lettre 'e'. */
-char logo2[LETTRES_LIGNES+4][LETTRES_COLONNES+4] = 
+//const char LOGO2[LETTRES_LIGNES+4][LETTRES_COLONNES+4] = 
+frame LOGO2 = 
 {
   "\n",
   "\n",
@@ -147,7 +137,7 @@ char logo2[LETTRES_LIGNES+4][LETTRES_COLONNES+4] =
   "\n"
 };
 /* La lettre 'B'. */
-char logo3[LETTRES_LIGNES][LETTRES_COLONNES] = 
+frame LOGO3 = 
 {
   "\n",
   "\n",
@@ -170,7 +160,7 @@ char logo3[LETTRES_LIGNES][LETTRES_COLONNES] =
   "\n"
 };
 /* La lettre 'a'. */
-char logo4[LETTRES_LIGNES][LETTRES_COLONNES] = 
+frame LOGO4 = 
 {
   "\n",
   "\n",
@@ -193,7 +183,7 @@ char logo4[LETTRES_LIGNES][LETTRES_COLONNES] =
   "\n"
 };
 /* La lettre 's'. */
-char logo5[LETTRES_LIGNES][LETTRES_COLONNES] = 
+frame LOGO5 = 
 {
   "\n",
   "\n",
@@ -216,7 +206,7 @@ char logo5[LETTRES_LIGNES][LETTRES_COLONNES] =
   "\n"
 };
 /* La lettre 'h'. */
-char logo6[LETTRES_LIGNES][LETTRES_COLONNES] = 
+frame LOGO6 = 
 {
   "\n",
   "\n",
@@ -238,6 +228,21 @@ char logo6[LETTRES_LIGNES][LETTRES_COLONNES] =
   "\n",
   "\n"
 };
+/* Collection de trames. */
+const std::array LOGOS{LOGON, LOGO0, LOGO1, LOGO2 ,LOGO3 ,LOGO4 ,LOGO5 ,LOGO6 };
+/* Fonction d'aide. */
+void help_info(char *commName)
+{
+  std::cout <<
+  "Aide pour " << commName << " :\n\n\
+Commandes : " << commName << " [-h | --help | -v [SYMBOLE] | --verbose [SYMBOLE] | -V | --version] \n\n\
+-h --help\t\tInformation sur les commandes.\n\n\
+-v --verbose\t\tMode bavard pour les essais. Ajouter une valeur\
+SYMBOLE affiche le symbole correspondant.\n\n\
+-V --version\t\tValeur de version.\n\n\
+SYMBOLE\t\tUne des valeurs de 1 à 6 pour les 6 lettres de WeBash\
+ou 0 pour le logo initial ou encore N pour une fenêtre sans croisillon.\n";
+}
 void essai(int argc, char **argv)
 {
   std::cout << "=================\n===== Tests =====\n=================" << "\n";
@@ -259,61 +264,15 @@ void essai(int argc, char **argv)
     * La lettre 'N' correspond à une fenêtre vide, le chiffre '0'
     * au logo de WeBash.
     */
-  std::cout << "\t== Symboles ==" << "\n";
-  if(argument=="N")
+  std::cout << "==== Symboles ===" << "\n";
+  for(auto i=0; i<8; i++)
   {
-    for(auto i=0;i<LOGO_LIGNES;i++)
+    if(argument==SYMBOLES[i])
     {
-      std::cout << logoN[i];
-    }
-  }
-  if(argument=="0")
-  {
-    for(auto i=0;i<LOGO_LIGNES;i++)
-    {
-      std::cout << logo0[i];
-    }
-  }
-  if(argument=="1")
-  {
-    for(auto i=0;i<LETTRES_LIGNES;i++)
-    {
-      std::cout << logo1[i];
-    }
-  }
-  if(argument=="2")
-  {
-    for(auto i=0;i<LETTRES_LIGNES+4;i++)
-    {
-      std::cout << logo2[i];
-    }
-  }
-  if(argument=="3")
-  {
-    for(auto i=0;i<LETTRES_LIGNES+4;i++)
-    {
-      std::cout << logo3[i];
-    }
-  }
-  if(argument=="4")
-  {
-    for(auto i=0;i<LETTRES_LIGNES;i++)
-    {
-      std::cout << logo4[i];
-    }
-  }
-  if(argument=="5")
-  {
-    for(auto i=0;i<LETTRES_LIGNES;i++)
-    {
-      std::cout << logo5[i];
-    }
-  }
-  if(argument=="6")
-  {
-    for(auto i=0;i<LETTRES_LIGNES;i++)
-    {
-      std::cout << logo6[i];
+      for(auto& s : LOGOS[i])
+      {
+        std::cout << s;
+      }
     }
   }
   std::cout << "\n";
@@ -325,18 +284,18 @@ void logoAnimation(void)
   /* La fenêtre vide. */
   std::cout << "\x1b[0J" << "\n";
   std::cout << titre << "\n";
-  for(auto i=0;i<LOGO_LIGNES;i++)
+  for(auto& s: LOGOS[0])
   {
-    std::cout << logoN[i];
+    std::cout << s;
   }
   std::cout << "\n";
   usleep(TEMPS_L);
   /* La fenêtre avec un croisillon. */
   std::cout << "\x1b[22A\x1b[0K" << "\n";
   std::cout << titre << "\n";
-  for(auto i=0;i<LOGO_LIGNES;i++)
+  for(auto& s: LOGOS[1])
   {
-    std::cout << logo0[i];
+    std::cout << s;
   }
   std::cout <<  std::endl;
   usleep(TEMPS_L);
@@ -345,7 +304,7 @@ void logoAnimation(void)
   std::cout << titre << "\n";
   for(auto i=0;i<LOGO_LIGNES;i++)
   {
-    std::cout << logo0[i] << "\x1b[1A\x1b[40C" << logo1[i];
+    std::cout << LOGO0[i] << "\x1b[1A\x1b[40C" << LOGO1[i];
   }
   std::cout << "\x1b[4A\x1b[39C" << "\x1b[0K\x1b[18C\x1b[5;39;40m######\x1b[0;0;0m" << "\x1b[4B\x1b[62D";
   std::cout <<  std::endl;
@@ -355,7 +314,7 @@ void logoAnimation(void)
   std::cout << titre << "\n";
   for(auto i=0;i<LOGO_LIGNES;i++)
   {
-    std::cout << logo0[i] << "\x1b[1A\x1b[40C" << logo2[i];
+    std::cout << LOGO0[i] << "\x1b[1A\x1b[40C" << LOGO2[i];
   }
   std::cout << "\x1b[4A\x1b[39C" << "\x1b[0K\x1b[26C\x1b[5;39;40m######\x1b[0;0;0m" << "\x1b[4B\x1b[70D";
   std::cout <<  std::endl;
@@ -365,8 +324,8 @@ void logoAnimation(void)
   std::cout << titre << "\n";
   for(auto i=0;i<LOGO_LIGNES;i++)
   {
-    std::cout << logo0[i];
-    std::cout << "\x1b[1A\x1b[65C" << logo3[i];
+    std::cout << LOGO0[i];
+    std::cout << "\x1b[1A\x1b[65C" << LOGO3[i];
   }
   std::cout << "\x1b[4A\x1b[39C" << "\x1b[0K\x1b[34C\x1b[5;39;40m######\x1b[0;0;0m" << "\x1b[4B\x1b[78D";
   std::cout <<  std::endl;
@@ -376,8 +335,8 @@ void logoAnimation(void)
   std::cout << titre << "\n";
   for(auto i=0;i<LOGO_LIGNES;i++)
   {
-    std::cout << logo0[i];
-    std::cout << "\x1b[1A\x1b[73C" << logo4[i];
+    std::cout << LOGO0[i];
+    std::cout << "\x1b[1A\x1b[73C" << LOGO4[i];
   }
   std::cout << "\x1b[4A\x1b[39C" << "\x1b[0K\x1b[41C\x1b[5;39;40m######\x1b[0;0;0m" << "\x1b[4B\x1b[85D";
   std::cout <<  std::endl;
@@ -387,8 +346,8 @@ void logoAnimation(void)
   std::cout << titre << "\n";
   for(auto i=0;i<LOGO_LIGNES;i++)
   {
-    std::cout << logo0[i];
-    std::cout << "\x1b[1A\x1b[79C" << logo5[i];
+    std::cout << LOGO0[i];
+    std::cout << "\x1b[1A\x1b[79C" << LOGO5[i];
   }
   std::cout << "\x1b[4A\x1b[39C" << "\x1b[0K\x1b[46C\x1b[5;39;40m######\x1b[0;0;0m" << "\x1b[4B\x1b[90D";
   std::cout <<  std::endl;
@@ -398,8 +357,8 @@ void logoAnimation(void)
   std::cout << titre << "\n";
   for(auto i=0;i<LOGO_LIGNES;i++)
   {
-    std::cout << logo0[i];
-    std::cout << "\x1b[1A\x1b[84C" << logo6[i];
+    std::cout << LOGO0[i];
+    std::cout << "\x1b[1A\x1b[84C" << LOGO6[i];
   }
   std::cout << "\x1b[4A\x1b[38C" << "\x1b[0K\x1b[52C\x1b[5;39;40m######\x1b[0;0;0m" << "\x1b[4B\x1b[95D";
   std::cout <<  std::endl;
