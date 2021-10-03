@@ -1,0 +1,85 @@
+/* CSS de WeBash. */
+body
+{
+  background: #202020;
+  color: #ffffff;
+}
+svg#svg884
+{
+  margin: 0.5em 45% 0.5em 45%;
+}
+p
+{
+  text-indent: 2em;
+}
+h1
+{
+  color:green;
+  text-align: center;
+}
+button#boot
+{
+  margin: 0.5em 30% 0.5em 30%;
+  width: 40%;
+  height: 2em;
+  font-size: 4em;
+}
+div#ecran
+{
+  background: #101010;
+  color: #ffffff;
+  font-size: 1.2em;
+  margin: 1em 15% 1em 15%;
+  width: 70%;
+  height: 28em;
+}
+div code pre
+{
+  display:inline;
+  line-height: 1em;
+}
+div code pre.red
+{
+  color: red;
+}
+/* Pour réaliser un clignotement en CSS3.
+ * Auteur : Computer Hope (10/07/2019)
+ * Source : https://www.computerhope.com/issues/ch001651.htm
+ */
+.blink {
+	-webkit-animation: blink .75s linear infinite;
+	-moz-animation: blink .75s linear infinite;
+	-ms-animation: blink .75s linear infinite;
+	-o-animation: blink .75s linear infinite;
+	 animation: blink .75s linear infinite;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
