@@ -1,6 +1,6 @@
 # WeBash-Logo
 
-Une collection de logotypes du projet *WeBash*.
+Une collection de logotypes pour le projet [*WeBash*](https://github.com/taokann/WeBash "Source du projet WeBash").
 
 `WeBashCLILogo.txt` est une concaténation de trois version statiques :
 
