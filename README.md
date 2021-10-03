@@ -11,3 +11,5 @@ Une collection de logotypes du projet *WeBash*.
 * un grand logotype coloré via *Bash*.
 
 `WeBashCLILogo.sh` est la version dynamique colorée via *Bash*.
+
+`WeBashCLILogo_v2.sh` est une version plus propre de *C++17*.
