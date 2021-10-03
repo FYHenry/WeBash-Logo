@@ -112,7 +112,6 @@ frame LOGO1 =
   "\n"
 };
 /* La lettre 'e'. */
-//const char LOGO2[LETTRES_LIGNES+4][LETTRES_COLONNES+4] = 
 frame LOGO2 = 
 {
   "\n",
