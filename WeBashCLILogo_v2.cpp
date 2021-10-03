@@ -27,7 +27,6 @@
 #include <iostream>//I/O en C++.
 #include <string>//Caractères C++.
 #include <unistd.h>//Non standard en C de GNU pour 'usleep()'.
-#include <ctime>//Non standard en C de GNU pour 'nanousleep()'.
 #include <array>//Tableaux C++.
 /* En ce qui concerne les dimensions des symboles et lettres. */
 const auto LOGO_LIGNES = 19;
