@@ -15,3 +15,5 @@ Une collection de logotypes pour le projet [*WeBash*](https://github.com/taokann
 `WeBashCLILogo.cpp` est la version dynamique colorée via *C++*.
 
 `WeBashCLILogo_v2.cpp` est une version plus propre selon *C++17*.
+
+`WeBashLogoWeb` contient une version *Web*.
