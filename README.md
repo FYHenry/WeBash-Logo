@@ -1,4 +1,4 @@
-# WeBash-Logo
+# WeBash Logo
 
 Une collection de logotypes pour le projet [*WeBash*](https://github.com/taokann/WeBash "Source du projet WeBash").
 

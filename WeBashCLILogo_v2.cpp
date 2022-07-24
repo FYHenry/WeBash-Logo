@@ -1,6 +1,6 @@
 /* Logo dynamique WeBash
  * Par Alnotz !
- * Version 2.0 (03/10/2021)
+ * Version 2.1 (24/07/2022)
  */
 /*
    _______________________________
@@ -23,7 +23,7 @@
 \                                   /
  \_________________________________/
  */
-/* g++ -std=c++17 -Wall -Wextra -c WeBashLogo.cpp && g++ -Wall -Wextra WeBashLogo.o -o WeBashLogo */
+/* g++ -std=c++17 -Wall -Wextra -c WeBashCLILogo_v2.cpp && g++ -Wall -Wextra WeBashCLILogo_v2.o -o WeBashCLILogo_v2 */
 #include <iostream>//I/O en C++.
 #include <string>//Caractères C++.
 #include <unistd.h>//Non standard en C de GNU pour 'usleep()'.
@@ -35,7 +35,7 @@ const auto LETTRES_LIGNES = 19;
 const auto SORTIE_LIGNES = 19;
 const auto SORTIE_COLONNES = 100;
 /* Numéro de version. */
-const auto LOGO_VERSION = std::string("2.0");
+const auto LOGO_VERSION = std::string("2.1");
 /* Temps de pause (microsecondes). */
 const auto TEMPS_L = 800000;//Long.
 const auto TEMPS_C = 200000;//Court.
@@ -235,10 +235,10 @@ void help_info(char *commName)
   "Aide pour " << commName << " :\n\n\
 Commandes : " << commName << " [-h | --help | -v [SYMBOLE] | --verbose [SYMBOLE] | -V | --version] \n\n\
 -h --help\t\tInformation sur les commandes.\n\n\
--v --verbose\t\tMode bavard pour les essais. Ajouter une valeur\
+-v --verbose\t\tMode bavard pour les essais. Ajouter une valeur \
 SYMBOLE affiche le symbole correspondant.\n\n\
 -V --version\t\tValeur de version.\n\n\
-SYMBOLE\t\tUne des valeurs de 1 à 6 pour les 6 lettres de WeBash\
+SYMBOLE\t\tUne des valeurs de 1 à 6 pour les 6 lettres de WeBash \
 ou 0 pour le logo initial ou encore N pour une fenêtre sans croisillon.\n";
 }
 void essai(int argc, char **argv)
